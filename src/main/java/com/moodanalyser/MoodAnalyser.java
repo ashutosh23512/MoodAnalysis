@@ -5,19 +5,19 @@ package com.moodanalyser;
 
 public class MoodAnalyser {
 	
-	private String message;
+
 	
-	public MoodAnalyser(String msg)
-	{
-		this.message=msg;
-	}
-	
-    public String analysemood() {
+    public String analysemood(String message) {
+    	try {
        if(message.contains("Sad"))
     		   return "SAD";
        else 
     	   return "HAPPY";
-    }
+    }catch(NullPointerException e)
+    	{
+    	System.out.println("Exception Thrown");
+    	}
+    	return "HAPPY";
     
     
-}
+}}
