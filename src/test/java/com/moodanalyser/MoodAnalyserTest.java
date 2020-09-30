@@ -11,7 +11,7 @@ import org.junit.Assert;
 public class MoodAnalyserTest {
  
     
-    @Test public void whennotsad() {
+    @Test public void WhenNotSadNull() {
         MoodAnalyser moodan = new MoodAnalyser();
 
        String mood = null;
@@ -25,7 +25,21 @@ public class MoodAnalyserTest {
 		e.printStackTrace();
 	}
     }
-       
+    
+    @Test public void WhenNotSadEmpty() {
+        MoodAnalyser moodan = new MoodAnalyser();
+
+       String mood = null;
+	try {
+		ExpectedException exceptionrule=ExpectedException.none();
+		exceptionrule.expect(MoodAnalysisException.class);
+		mood = moodan.analysemood("");
+	    Assert.assertEquals("HAPPY",mood);
+
+	} catch (MoodAnalysisException e) {
+		e.printStackTrace();
+	}
+    }
     
     
     	

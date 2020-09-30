@@ -9,8 +9,10 @@ public class MoodAnalyser {
 
 	
     public String analysemood(String message) throws MoodAnalysisException {
-    	try {
-
+    	try {	
+	   if(message.length()==0)
+    			throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,"Please enter valid mood");
+    		
        if(message.contains("Sad"))
     		   return "SAD";
        else 
@@ -18,7 +20,7 @@ public class MoodAnalyser {
     }catch(NullPointerException e)
     	{
     	System.out.println("Exception Thrown");
-    	throw new MoodAnalysisException("Please Enter Valid Mood");
+    	throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL,"Please enter valid mood");
     	}
     	
     
