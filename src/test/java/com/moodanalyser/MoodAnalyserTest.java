@@ -3,20 +3,27 @@
  */
 package com.moodanalyser;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import com.moodanalyser.MoodAnalyser;
 import org.junit.Assert;
 
 public class MoodAnalyserTest {
-  /*  @Test public void whensad() {
-        MoodAnalyser moodan = new MoodAnalyser();
-       String mood=moodan.analysemood(null);
-       Assert.assertEquals("SAD",mood);
-    }*/
+ 
     
     @Test public void whennotsad() {
         MoodAnalyser moodan = new MoodAnalyser();
-       String mood=moodan.analysemood(null);
-       Assert.assertEquals("HAPPY",mood);
+
+       String mood = null;
+	try {
+		ExpectedException exceptionrule=ExpectedException.none();
+		exceptionrule.expect(MoodAnalysisException.class);
+		mood = moodan.analysemood(null);
+	    Assert.assertEquals("HAPPY",mood);
+
+	} catch (MoodAnalysisException e) {
+		e.printStackTrace();
+	}
     }
        
     
