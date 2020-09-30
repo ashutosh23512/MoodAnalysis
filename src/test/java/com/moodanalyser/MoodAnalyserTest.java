@@ -11,14 +11,14 @@ import org.junit.Assert;
 
 public class MoodAnalyserTest {
     @Test public void whensad() {
-        MoodAnalyser moodan = new MoodAnalyser();
-       String mood=moodan.analysemood("I am in Sad Mood");
+        MoodAnalyser moodan = new MoodAnalyser("I am in Sad Mood");
+       String mood=moodan.analysemood();
        Assert.assertEquals("SAD",mood);
     }
     
     @Test public void whennotsad() {
-        MoodAnalyser moodan = new MoodAnalyser();
-       String mood=moodan.analysemood("I am in Happy Mood");
+        MoodAnalyser moodan = new MoodAnalyser("I am in Happy Mood");
+       String mood=moodan.analysemood();
        Assert.assertEquals("HAPPY",mood);
     }
 }       
